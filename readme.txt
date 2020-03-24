@@ -1,6 +1,6 @@
 author: mattan yeroushalmi
 
-
+0.put both files in the same folder (py and bat)
 1.navigate in your browser to the lecture on panopto
 2.copy the link from the URL bar
 3.open lg.bat
