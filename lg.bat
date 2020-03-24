@@ -1,0 +1,1 @@
+start  cmd /k python panopto_link_generator.py
