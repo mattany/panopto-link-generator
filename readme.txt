@@ -6,9 +6,9 @@ author: mattan yeroushalmi
 3.open lg.bat
 4.paste and press enter
 
-
-*You might have to change lg.bat from "python" to "python3" 
+Notes:
+-You might have to change lg.bat from "python" to "python3" 
 depending on what your path variables are called.
-
+-Non windows users cannot use the batch file but instead can run the python script directly.
 Enjoy!
 
