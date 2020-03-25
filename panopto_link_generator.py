@@ -5,8 +5,7 @@ while True:
     try:
         url = f"https://huji.cloud.panopto.eu/Panopto/Podcast/Social/{LINK.split('=')[1]}.mp4"
         webbrowser.open(url, new=0, autoraise=True)
-        break
+
     except:
         print("bad link. try again.")
-        continue
 
