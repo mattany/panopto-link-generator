@@ -15,11 +15,11 @@ firefoxPath="/home/mattan/Downloads/geckodriver-v0.26.0-linux64/geckodriver"
 
 def download_file(link,out=None):
 	if out is None:
-		out_name = f"{LINK.split('=')[1]}.mp4"
+		out_name = f"{link.split('=')[1]}.mp4"
 	else:
 		out_name = out
 	# try:
-	url = f"https://huji.cloud.panopto.eu/Panopto/Podcast/Social/{LINK.split('=')[1]}.mp4"
+	url = f"https://huji.cloud.panopto.eu/Panopto/Podcast/Social/{link.split('=')[1]}.mp4"
 	driver = webdriver.Firefox(executable_path=firefoxPath)
 	driver.get("https://moodle2.cs.huji.ac.il/nu19/")
 	driver.set_window_size(965, 691)
@@ -30,7 +30,7 @@ def download_file(link,out=None):
 	driver.find_element(By.ID, "login_username").send_keys(USERNAME)
 	driver.find_element(By.ID, "login_password").send_keys(PASSWORD)
 	driver.find_element(By.CSS_SELECTOR, ".form-group > .btn").click()
-	driver.get(LINK)
+	driver.get(link)
 	driver.find_element(By.ID, "providerDropdown").click()
 	dropdown = driver.find_element(By.ID, "providerDropdown")
 	dropdown.find_element(By.XPATH, "//option[. = 'HUJI Moodle']").click()
@@ -47,7 +47,8 @@ if __name__ == "__main__":
 	if os.path.isfile(LINK):
 		with open(LINK, "r") as f:
 			for i, line in enumerate(f.readlines()):
-				if sys.argv[2]:
+				if len(sys.argv) > 2:
+					print(line)
 					download_file(line, f"{sys.argv[2]}_{i}.mp4")
 				else:
 					download_file(line, f"file{i}.mp4")
