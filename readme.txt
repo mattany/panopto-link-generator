@@ -15,6 +15,8 @@ dependencies: selenium webdriver, geckoDriver
 
 USAGE:
 lg.sh <link to panopto url> <outfile name>
+    OR
+lg.sh <path to file containing multiple links> <prefix for filenames>
 
 Enjoy!
 
