@@ -1,0 +1,1 @@
+python3 linux_version.py $1 $2
