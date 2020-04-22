@@ -11,11 +11,13 @@ PASSWORD = "moodle_password"
 
 
 firefoxPath="/home/mattan/Downloads/geckodriver-v0.26.0-linux64/geckodriver"
-if __name__ == "__main__":
-	LINK = sys.argv[1]
-	OUTNAME = f"{LINK.split('=')[1]}.mp4"
-	if len(sys.argv) > 2:
-		OUTNAME = f"{sys.argv[2]}.mp4"
+
+
+def download_file(link,out=None):
+	if out is None:
+		out_name = f"{LINK.split('=')[1]}.mp4"
+	else:
+		out_name = out
 	# try:
 	url = f"https://huji.cloud.panopto.eu/Panopto/Podcast/Social/{LINK.split('=')[1]}.mp4"
 	driver = webdriver.Firefox(executable_path=firefoxPath)
@@ -37,5 +39,19 @@ if __name__ == "__main__":
 	driver.get(url)
 	direct_link = driver.current_url
 	driver.close()
-	os.system(f"wget {direct_link} -O {OUTNAME}")
+	os.system(f"wget {direct_link} -O {out_name}")
+
+
+if __name__ == "__main__":
+	LINK = sys.argv[1]
+	if os.path.isfile(LINK):
+		with open(LINK, "r") as f:
+			for i, line in enumerate(f.readlines()):
+				if sys.argv[2]:
+					download_file(line, f"{sys.argv[2]}_{i}.mp4")
+				else:
+					download_file(line, f"file{i}.mp4")
+	elif len(sys.argv) > 2:
+		output = f"{sys.argv[2]}.mp4"
+		download_file(LINK, output)
 
