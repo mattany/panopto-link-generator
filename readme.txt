@@ -11,7 +11,7 @@ author: mattan yeroushalmi
 depending on what your path variables are called.
 
 --LINUX DOWNLOADER--
-dependencies: selenium webdriver, geckoDriver
+dependencies: selenium (geckoDriver), requests, webdriver,
 
 USAGE:
 lg.sh <link to panopto url> <outfile name>
