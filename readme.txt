@@ -5,7 +5,7 @@ author: mattan yeroushalmi
 2.copy the link from the URL bar
 3.open lg.bat
 4.paste and press enter
-
+5.in the window that opens, right click the video and click "save as", choose where to save the file 
 
 *You might have to change lg.bat from "python" to "python3" 
 depending on what your path variables are called.
