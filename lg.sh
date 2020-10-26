@@ -1,1 +1,1 @@
-python3 linux_version.py $1 $2
+python3 panopto_link_generator.py
